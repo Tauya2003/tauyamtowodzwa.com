@@ -3,6 +3,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import bg1 from "../assets/images/bg1.png";
 import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 const Layout = () => {
   return (
@@ -18,6 +19,7 @@ const Layout = () => {
       }}
     >
       <Navbar />
+      <Sidebar />
       <Outlet />
     </Box>
   );
