@@ -31,7 +31,10 @@ const Sidebar = () => {
         borderRadius: "1000px",
       }}
     >
-      <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
+      <IconButton
+        onClick={() => setSelected("home")}
+        sx={{ "&:hover": { bgcolor: "transparent" } }}
+      >
         <HomeOutlined
           sx={{
             fontSize: "32px",

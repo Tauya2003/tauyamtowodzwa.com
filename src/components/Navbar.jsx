@@ -15,7 +15,7 @@ const Navbar = () => {
         justifyContent: "space-between",
         width: "100%",
         padding: "0 20px",
-        position: "fixed",
+        position: "sticky",
         top: 0,
         padding: "60px 150px 0 150px",
       }}
@@ -24,6 +24,7 @@ const Navbar = () => {
         onClick={() => navigate("")}
         sx={{
           color: "#343434",
+          fontFamily: "Montserrat, sans-sarif",
           fontSize: "24px",
           fontWeight: 700,
           lineHeight: "normal",
@@ -33,17 +34,20 @@ const Navbar = () => {
         Tauya Mtowodzwa
       </Typography>
 
-      <Stack direction={"row"} gap={"60px"}>
+      <Stack direction={"row"} gap={"40px"}>
         <IconButton href="" target="_blank">
           <Facebook sx={{ color: "#000" }} />
         </IconButton>
         <IconButton href="" target="_blank">
           <Instagram sx={{ color: "#000" }} />
         </IconButton>
-        <IconButton href="" target="_blank">
+        <IconButton href="https://github.com/Tauya2003" target="_blank">
           <GitHub sx={{ color: "#000" }} />
         </IconButton>
-        <IconButton href="" target="_blank">
+        <IconButton
+          href="https://www.linkedin.com/in/tauyanashe-mtowodzwa"
+          target="_blank"
+        >
           <LinkedIn sx={{ color: "#000" }} />
         </IconButton>
       </Stack>

@@ -16,6 +16,7 @@ const Layout = () => {
         height: "100vh",
         backgroundImage: `url(${bg1})`,
         backgroundSize: "cover",
+        position: "relative",
       }}
     >
       <Navbar />
