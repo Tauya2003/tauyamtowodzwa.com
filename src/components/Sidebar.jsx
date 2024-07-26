@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
-        width: "80px",
+        width: "60px",
         gap: "20px",
         display: "flex",
         flexDirection: "column",
@@ -26,9 +26,9 @@ const Sidebar = () => {
         right: "5%",
         top: "25%",
         py: "20px",
-        bgcolor: "#e5e5e5",
-        boxShadow: "0 0 30px rgba(0, 0, 0, 0.2)",
+        boxShadow: "0 0 20px rgba(0, 0, 0, 0.2)",
         borderRadius: "1000px",
+        backdropFilter: "blur(10px)",
       }}
     >
       <IconButton
@@ -37,7 +37,6 @@ const Sidebar = () => {
       >
         <HomeOutlined
           sx={{
-            fontSize: "32px",
             color: selected === "home" ? "#EBA864" : "#000",
             transition: "all 0.3s",
             "&:hover": { color: "#EBA864" },
@@ -48,7 +47,6 @@ const Sidebar = () => {
       <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
         <PersonOutlineOutlined
           sx={{
-            fontSize: "30px",
             color: selected === "profile" ? "#EBA864" : "#000",
             transition: "all 0.3s",
             "&:hover": { color: "#EBA864" },
@@ -59,7 +57,6 @@ const Sidebar = () => {
       <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
         <SettingsOutlined
           sx={{
-            fontSize: "30px",
             color: "#000",
             transition: "all 0.3s",
             "&:hover": { color: "#EBA864" },
@@ -70,7 +67,6 @@ const Sidebar = () => {
       <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
         <FolderOutlined
           sx={{
-            fontSize: "30px",
             color: "#000",
             transition: "all 0.3s",
             "&:hover": { color: "#EBA864" },
@@ -81,7 +77,6 @@ const Sidebar = () => {
       <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
         <ChatBubbleOutlineOutlined
           sx={{
-            fontSize: "30px",
             color: "#000",
             transition: "all 0.3s",
             "&:hover": { color: "#EBA864" },
@@ -92,7 +87,6 @@ const Sidebar = () => {
       <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
         <EmailOutlined
           sx={{
-            fontSize: "30px",
             color: "#000",
             transition: "all 0.3s",
             "&:hover": { color: "#EBA864" },
