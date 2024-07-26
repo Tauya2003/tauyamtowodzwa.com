@@ -18,6 +18,7 @@ const Navbar = () => {
         position: "fixed",
         top: 0,
         padding: "60px 150px 0 150px",
+        zIndex: 100,
       }}
     >
       <Typography
@@ -36,19 +37,19 @@ const Navbar = () => {
 
       <Stack direction={"row"} gap={"40px"}>
         <IconButton href="" target="_blank">
-          <Facebook sx={{ color: "#000" }} />
+          <Facebook sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
         </IconButton>
         <IconButton href="" target="_blank">
-          <Instagram sx={{ color: "#000" }} />
+          <Instagram sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
         </IconButton>
         <IconButton href="https://github.com/Tauya2003" target="_blank">
-          <GitHub sx={{ color: "#000" }} />
+          <GitHub sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
         </IconButton>
         <IconButton
           href="https://www.linkedin.com/in/tauyanashe-mtowodzwa"
           target="_blank"
         >
-          <LinkedIn sx={{ color: "#000" }} />
+          <LinkedIn sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
         </IconButton>
       </Stack>
     </Box>
