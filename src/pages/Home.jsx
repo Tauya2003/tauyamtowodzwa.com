@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import myprojects from "../assets/images/my-projects.png";
+import bg1 from "../assets/images/bg1.png";
 import chevron from "../assets/icons/chevron.png";
 
 const Home = () => {
@@ -7,11 +8,14 @@ const Home = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100%",
+        height: "100vh",
         px: "60px",
+        pt: "100px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        backgroundImage: `url(${bg1})`,
+        backgroundSize: "cover",
       }}
     >
       <Typography
