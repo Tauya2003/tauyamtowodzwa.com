@@ -1,4 +1,4 @@
-import { ArrowBackIosNew, ArrowForwardIos, Tv } from "@mui/icons-material";
+import { ArrowForwardIos, Tv } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
 
 const ServicesSliderCard = () => {

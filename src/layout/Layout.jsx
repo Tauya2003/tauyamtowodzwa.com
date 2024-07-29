@@ -5,6 +5,7 @@ import Sidebar from "../components/Sidebar";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Services from "../pages/Services";
+import Work from "../pages/Work";
 
 const Layout = () => {
   return (
@@ -22,6 +23,7 @@ const Layout = () => {
       <Home />
       <About />
       <Services />
+      <Work />
     </Box>
   );
 };
