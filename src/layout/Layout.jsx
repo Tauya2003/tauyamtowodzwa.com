@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import Services from "../pages/Services";
 
 const Layout = () => {
   return (
@@ -20,6 +21,7 @@ const Layout = () => {
       <Sidebar />
       <Home />
       <About />
+      <Services />
     </Box>
   );
 };

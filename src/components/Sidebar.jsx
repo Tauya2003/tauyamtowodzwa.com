@@ -2,9 +2,7 @@ import {
   ChatBubbleOutlineOutlined,
   EmailOutlined,
   FolderOutlined,
-  Home,
   HomeOutlined,
-  Person2Outlined,
   PersonOutlineOutlined,
   SettingsOutlined,
 } from "@mui/icons-material";
