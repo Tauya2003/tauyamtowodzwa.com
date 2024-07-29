@@ -9,6 +9,7 @@ const Testimonials = () => {
       sx={{
         width: "100%",
         height: "100vh",
+        minHeight: "100vh",
         px: "60px",
         pt: "100px",
         flexDirection: "column",
@@ -17,6 +18,8 @@ const Testimonials = () => {
         backgroundImage: `url(${bg3})`,
         backgroundSize: "cover",
         gap: "20px",
+        scrollSnapAlign: "start",
+        scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
       <Typography

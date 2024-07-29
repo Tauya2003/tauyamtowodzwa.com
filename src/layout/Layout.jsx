@@ -16,8 +16,13 @@ const Layout = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        height: "100vh",
+        overflowY: "scroll",
         position: "relative",
+        scrollSnapType: "y mandatory",
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
       }}
     >
       <Navbar />

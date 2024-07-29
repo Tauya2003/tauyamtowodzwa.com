@@ -16,6 +16,9 @@ const Work = () => {
         backgroundImage: `url(${bg3})`,
         backgroundSize: "cover",
         gap: "50px",
+        scrollSnapAlign: "start",
+        minHeight: "100vh",
+        scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
       <Box sx={{ mt: "-100px", ml: "50px" }}>

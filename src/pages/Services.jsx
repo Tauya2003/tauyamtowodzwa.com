@@ -8,6 +8,7 @@ const Services = () => {
       sx={{
         width: "100%",
         height: "100vh",
+        minHeight: "100vh",
         px: "60px",
         pt: "100px",
         alignItems: "center",
@@ -15,6 +16,8 @@ const Services = () => {
         backgroundImage: `url(${bg3})`,
         backgroundSize: "cover",
         gap: "20px",
+        scrollSnapAlign: "start",
+        scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
       <Box sx={{ mt: "-70px", ml: "50px" }}>

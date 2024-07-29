@@ -8,6 +8,7 @@ const Contact = () => {
       sx={{
         width: "100%",
         height: "100vh",
+        minHeight: "100vh",
         px: "60px",
         pt: "100px",
         flexDirection: "column",
@@ -17,6 +18,8 @@ const Contact = () => {
         backgroundSize: "cover",
         gap: "20px",
         overflow: "hidden",
+        scrollSnapAlign: "start",
+        scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
       <Box component={"form"} sx={{ display: "flex", flexDirection: "column" }}>

@@ -10,6 +10,7 @@ const About = () => {
       sx={{
         width: "100%",
         height: "100vh",
+        minHeight: "100vh",
         px: "15%",
         pt: "160px",
         display: "flex",
@@ -17,6 +18,8 @@ const About = () => {
         backgroundImage: `url(${bg2})`,
         backgroundSize: "cover",
         gap: "30px",
+        scrollSnapAlign: "start",
+        scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>

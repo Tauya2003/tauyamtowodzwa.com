@@ -9,6 +9,7 @@ const Home = () => {
       sx={{
         width: "100%",
         height: "100vh",
+        minHeight: "100vh",
         px: "60px",
         pt: "100px",
         display: "flex",
@@ -16,6 +17,8 @@ const Home = () => {
         justifyContent: "center",
         backgroundImage: `url(${bg1})`,
         backgroundSize: "cover",
+        scrollSnapAlign: "start",
+        scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
       <Typography
