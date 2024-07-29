@@ -1,6 +1,6 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import bg3 from "../assets/images/bg3.png";
-import { ArrowBack, ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import TestimonialCard from "../components/TestimonialCard";
 
 const Testimonials = () => {
