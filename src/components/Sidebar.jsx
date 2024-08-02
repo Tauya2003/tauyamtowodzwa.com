@@ -25,6 +25,14 @@ const Sidebar = () => {
     },
     { id: "contact", icon: <EmailOutlined />, href: "#contact" },
   ];
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -45,8 +53,10 @@ const Sidebar = () => {
       {items.map(({ id, icon, href }) => (
         <IconButton
           key={id}
-          onClick={() => setSelected(id)}
-          href={href}
+          onClick={() => {
+            setSelected(id);
+            scrollToSection(id);
+          }}
           aria-label={id}
           sx={{ "&:hover": { bgcolor: "transparent" } }}
         >

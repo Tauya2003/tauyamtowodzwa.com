@@ -16,6 +16,13 @@ const Home = () => {
     }
   }, [isInView, setSelected]);
 
+  const scrollToPortfolio = () => {
+    const portfolio = document.getElementById("portfolio");
+    if (portfolio) {
+      portfolio.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box
       id="home"
@@ -83,7 +90,11 @@ const Home = () => {
           className="rotating"
           src={myprojects}
           alt="my-projects"
-          style={{ width: "130px", position: "absolute" }}
+          style={{
+            width: "130px",
+            position: "absolute",
+            animation: "rotate 10s linear infinite",
+          }}
         />
         <Box
           sx={{
@@ -96,9 +107,11 @@ const Home = () => {
           }}
         >
           <img
+            onClick={scrollToPortfolio}
             style={{
               cursor: "pointer",
               animation: "scrollRight 2s ease infinite",
+              // transform: "rotate(90deg)",
             }}
             src={chevron}
             alt="chevron"
