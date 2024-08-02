@@ -14,7 +14,6 @@ const Navbar = () => {
         alignItems: "center",
         justifyContent: "space-between",
         width: "100%",
-        padding: "0 20px",
         position: "fixed",
         top: 0,
         padding: "60px 150px 0 150px",

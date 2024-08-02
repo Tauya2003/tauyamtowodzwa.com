@@ -7,6 +7,7 @@ const About = () => {
   const tabs = ["Skills", "Experience", "Credentials"];
   return (
     <Box
+      id="about"
       sx={{
         width: "100%",
         height: "100vh",

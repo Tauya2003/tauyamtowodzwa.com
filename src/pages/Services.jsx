@@ -5,6 +5,7 @@ import ServicesSliderCard from "../components/ServicesSliderCard";
 const Services = () => {
   return (
     <Box
+      id="services"
       sx={{
         width: "100%",
         height: "100vh",

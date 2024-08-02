@@ -6,6 +6,7 @@ import chevron from "../assets/icons/chevron.png";
 const Home = () => {
   return (
     <Box
+      id="home"
       sx={{
         width: "100%",
         height: "100vh",

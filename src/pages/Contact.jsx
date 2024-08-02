@@ -5,6 +5,7 @@ import { Send } from "@mui/icons-material";
 const Contact = () => {
   return (
     <Box
+      id="contact"
       sx={{
         width: "100%",
         height: "100vh",

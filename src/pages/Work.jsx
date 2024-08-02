@@ -6,6 +6,7 @@ import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 const Work = () => {
   return (
     <Box
+      id="work"
       sx={{
         width: "100%",
         height: "100vh",
