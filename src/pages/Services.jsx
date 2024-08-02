@@ -1,11 +1,24 @@
 import { Box, Typography } from "@mui/material";
 import bg3 from "../assets/images/bg3.png";
 import ServicesSliderCard from "../components/ServicesSliderCard";
+import { useSidebar } from "../context/SidebarContext";
+import useInView from "../hooks/useInView";
+import { useEffect } from "react";
 
 const Services = () => {
+  const { setSelected } = useSidebar();
+  const [ref, isInView] = useInView();
+
+  useEffect(() => {
+    if (isInView) {
+      setSelected("services");
+    }
+  }, [isInView, setSelected]);
+
   return (
     <Box
       id="services"
+      ref={ref}
       sx={{
         width: "100%",
         height: "100vh",

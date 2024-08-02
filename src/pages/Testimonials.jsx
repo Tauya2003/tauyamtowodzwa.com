@@ -2,11 +2,24 @@ import { Box, IconButton, Stack, Typography } from "@mui/material";
 import bg3 from "../assets/images/bg3.png";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import TestimonialCard from "../components/TestimonialCard";
+import { useSidebar } from "../context/SidebarContext";
+import useInView from "../hooks/useInView";
+import { useEffect } from "react";
 
 const Testimonials = () => {
+  const { setSelected } = useSidebar();
+  const [ref, isInView] = useInView();
+
+  useEffect(() => {
+    if (isInView) {
+      setSelected("testimonials");
+    }
+  }, [isInView, setSelected]);
+
   return (
     <Box
       id="testimonials"
+      ref={ref}
       sx={{
         width: "100%",
         height: "100vh",

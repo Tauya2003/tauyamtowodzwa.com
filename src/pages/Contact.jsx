@@ -1,11 +1,24 @@
 import { Box, Button, Typography } from "@mui/material";
 import bg4 from "../assets/images/bg4.png";
 import { Send } from "@mui/icons-material";
+import { useSidebar } from "../context/SidebarContext";
+import useInView from "../hooks/useInView";
+import { useEffect } from "react";
 
 const Contact = () => {
+  const { setSelected } = useSidebar();
+  const [ref, isInView] = useInView();
+
+  useEffect(() => {
+    if (isInView) {
+      setSelected("contact");
+    }
+  }, [isInView, setSelected]);
+
   return (
     <Box
       id="contact"
+      ref={ref}
       sx={{
         width: "100%",
         height: "100vh",

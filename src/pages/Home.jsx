@@ -2,11 +2,24 @@ import { Box, Typography } from "@mui/material";
 import myprojects from "../assets/images/my-projects.png";
 import bg1 from "../assets/images/bg1.png";
 import chevron from "../assets/icons/chevron.png";
+import { useSidebar } from "../context/SidebarContext";
+import useInView from "../hooks/useInView";
+import { useEffect } from "react";
 
 const Home = () => {
+  const { setSelected } = useSidebar();
+  const [ref, isInView] = useInView();
+
+  useEffect(() => {
+    if (isInView) {
+      setSelected("home");
+    }
+  }, [isInView, setSelected]);
+
   return (
     <Box
       id="home"
+      ref={ref}
       sx={{
         width: "100%",
         height: "100vh",

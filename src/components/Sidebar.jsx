@@ -7,11 +7,24 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 import { Box, IconButton } from "@mui/material";
-import { useState } from "react";
+import { cloneElement, useState } from "react";
+import { useSidebar } from "../context/SidebarContext";
 
 const Sidebar = () => {
-  const [selected, setSelected] = useState("home");
+  const { selected, setSelected } = useSidebar();
 
+  const items = [
+    { id: "home", icon: <HomeOutlined />, href: "#home" },
+    { id: "about", icon: <PersonOutlineOutlined />, href: "#about" },
+    { id: "services", icon: <SettingsOutlined />, href: "#services" },
+    { id: "portfolio", icon: <FolderOutlined />, href: "#portfolio" },
+    {
+      id: "testimonials",
+      icon: <ChatBubbleOutlineOutlined />,
+      href: "#testimonials",
+    },
+    { id: "contact", icon: <EmailOutlined />, href: "#contact" },
+  ];
   return (
     <Box
       sx={{
@@ -29,68 +42,23 @@ const Sidebar = () => {
         backdropFilter: "blur(10px)",
       }}
     >
-      <IconButton
-        onClick={() => setSelected("home")}
-        sx={{ "&:hover": { bgcolor: "transparent" } }}
-      >
-        <HomeOutlined
-          sx={{
-            color: selected === "home" ? "#EBA864" : "#000",
-            transition: "all 0.3s",
-            "&:hover": { color: "#EBA864" },
-          }}
-        />
-      </IconButton>
-
-      <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
-        <PersonOutlineOutlined
-          sx={{
-            color: selected === "profile" ? "#EBA864" : "#000",
-            transition: "all 0.3s",
-            "&:hover": { color: "#EBA864" },
-          }}
-        />
-      </IconButton>
-
-      <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
-        <SettingsOutlined
-          sx={{
-            color: "#000",
-            transition: "all 0.3s",
-            "&:hover": { color: "#EBA864" },
-          }}
-        />
-      </IconButton>
-
-      <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
-        <FolderOutlined
-          sx={{
-            color: "#000",
-            transition: "all 0.3s",
-            "&:hover": { color: "#EBA864" },
-          }}
-        />
-      </IconButton>
-
-      <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
-        <ChatBubbleOutlineOutlined
-          sx={{
-            color: "#000",
-            transition: "all 0.3s",
-            "&:hover": { color: "#EBA864" },
-          }}
-        />
-      </IconButton>
-
-      <IconButton sx={{ "&:hover": { bgcolor: "transparent" } }}>
-        <EmailOutlined
-          sx={{
-            color: "#000",
-            transition: "all 0.3s",
-            "&:hover": { color: "#EBA864" },
-          }}
-        />
-      </IconButton>
+      {items.map(({ id, icon, href }) => (
+        <IconButton
+          key={id}
+          onClick={() => setSelected(id)}
+          href={href}
+          aria-label={id}
+          sx={{ "&:hover": { bgcolor: "transparent" } }}
+        >
+          {cloneElement(icon, {
+            sx: {
+              color: selected === id ? "#EBA864" : "#000",
+              transition: "all 0.3s",
+              "&:hover": { color: "#EBA864" },
+            },
+          })}
+        </IconButton>
+      ))}
     </Box>
   );
 };

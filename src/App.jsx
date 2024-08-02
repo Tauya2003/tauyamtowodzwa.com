@@ -1,11 +1,12 @@
 import "./App.css";
+import { SidebarProvider } from "./context/SidebarContext";
 import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <div>
+    <SidebarProvider>
       <Layout />
-    </div>
+    </SidebarProvider>
   );
 }
 

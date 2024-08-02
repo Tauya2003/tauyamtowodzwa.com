@@ -1,13 +1,26 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import bg2 from "../assets/images/bg2.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSidebar } from "../context/SidebarContext";
+import useInView from "../hooks/useInView";
 
 const About = () => {
   const [selectedTab, setSelectedTab] = useState("Skills");
   const tabs = ["Skills", "Experience", "Credentials"];
+
+  const { setSelected } = useSidebar();
+  const [ref, isInView] = useInView();
+
+  useEffect(() => {
+    if (isInView) {
+      setSelected("about");
+    }
+  }, [isInView, setSelected]);
+
   return (
     <Box
       id="about"
+      ref={ref}
       sx={{
         width: "100%",
         height: "100vh",
