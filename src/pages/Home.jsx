@@ -31,12 +31,13 @@ const Home = () => {
         width: "100%",
         height: "100vh",
         minHeight: "100vh",
-        px: "60px",
-        pt: "100px",
+        px: { xs: "16px", md: "60px" },
+        pt: { xs: "16px", md: "100px" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         backgroundImage: `url(${bg1})`,
+        backgroundPosition: "40%",
         backgroundSize: "cover",
         scrollSnapAlign: "start",
         scrollSnapStop: { xs: "normal", md: "always" },
@@ -46,10 +47,10 @@ const Home = () => {
         sx={{
           color: "#343434",
           fontFamily: "Montserrat, sans-sarif",
-          fontSize: "60px",
+          fontSize: { xs: "35px", md: "60px" },
           fontWeight: 700,
-          lineHeight: "60px",
-          width: "60%",
+          lineHeight: { xs: "normal", md: "60px" },
+          width: { xs: "90%", md: "60%" },
         }}
       >
         Crafting innovative{" "}
@@ -59,13 +60,13 @@ const Home = () => {
 
       <Typography
         sx={{
-          mt: "20px",
+          mt: { xs: "10px", md: "20px" },
           color: "#787878",
           fontFamily: "Montserrat, sans-rarif",
-          fontSize: "16px",
+          fontSize: { xs: "15px", md: "16px" },
           fontWeight: "500",
           lineHeight: "normal",
-          width: "50%",
+          width: { xs: "65%", md: "50%" },
         }}
       >
         "I thrive on turning complex ideas into elegant software solutions and I
@@ -78,8 +79,8 @@ const Home = () => {
       <Box
         sx={{
           mt: "40px",
-          width: "130px",
-          height: "130px",
+          width: { xs: "90px", md: "130px" },
+          height: { xs: "80px", md: "130px" },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -91,19 +92,20 @@ const Home = () => {
           src={myprojects}
           alt="my-projects"
           style={{
-            width: "130px",
+            width: "100%",
             position: "absolute",
             animation: "rotate 10s linear infinite",
           }}
         />
         <Box
           sx={{
-            width: "105px",
-            height: "105px",
-            border: "5px solid #EBA864",
+            width: { xs: "70px", md: "105px" },
+            height: { xs: "70px", md: "105px" },
+            border: { xs: "2.75px solid #EBA864", md: "5px solid #EBA864" },
             borderRadius: "50%",
             display: "grid",
             placeContent: "center",
+            p: { xs: "23px", md: 0 },
           }}
         >
           <img
@@ -111,6 +113,7 @@ const Home = () => {
             style={{
               cursor: "pointer",
               animation: "scrollRight 2s ease infinite",
+              width: "100%",
               // transform: "rotate(90deg)",
             }}
             src={chevron}

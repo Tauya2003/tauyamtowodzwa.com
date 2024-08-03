@@ -28,11 +28,11 @@ const Layout = () => {
       <Navbar />
       <Sidebar />
       <Home />
-      <About />
-      <Services />
-      <Work />
-      <Testimonials />
-      <Contact />
+      {/* <About /> */}
+      {/* <Services /> */}
+      {/* <Work /> */}
+      {/* <Testimonials /> */}
+      {/* <Contact /> */}
     </Box>
   );
 };

@@ -16,7 +16,7 @@ const Navbar = () => {
         width: "100%",
         position: "fixed",
         top: 0,
-        padding: "60px 150px 0 150px",
+        padding: { xs: "40px 20px", md: "60px 150px 0 150px" },
         zIndex: 100,
       }}
     >
@@ -24,7 +24,7 @@ const Navbar = () => {
         onClick={() => navigate("")}
         sx={{
           color: "#343434",
-          fontFamily: "Montserrat, sans-sarif",
+          fontFamily: "Monospace",
           fontSize: "24px",
           fontWeight: 700,
           lineHeight: "normal",
@@ -34,7 +34,11 @@ const Navbar = () => {
         Tauya Mtowodzwa
       </Typography>
 
-      <Stack direction={"row"} gap={"40px"}>
+      <Stack
+        direction={"row"}
+        gap={"40px"}
+        display={{ xs: "none", md: "flex" }}
+      >
         <IconButton href="" target="_blank">
           <Facebook sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
         </IconButton>
