@@ -1,13 +1,27 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import bg4 from "../assets/images/bg4.png";
-import { Send } from "@mui/icons-material";
+import { Done, Send } from "@mui/icons-material";
 import { useSidebar } from "../context/SidebarContext";
 import useInView from "../hooks/useInView";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MainContext } from "../context/MainContext";
 
 const Contact = () => {
   const { setSelected } = useSidebar();
   const [ref, isInView] = useInView();
+  const { submitMessage, loading, success, error } = useContext(MainContext);
+  const [sent, setSent] = useState(success);
+
+  useEffect(() => {
+    if (success) {
+      setSent(true);
+      const timer = setTimeout(() => {
+        setSent(false);
+      }, 3000);
+
+      return () => clearInterval(timer);
+    }
+  }, [success]);
 
   useEffect(() => {
     if (isInView) {
@@ -36,7 +50,13 @@ const Contact = () => {
         scrollSnapStop: { xs: "normal", md: "always" },
       }}
     >
-      <Box component={"form"} sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        component={"form"}
+        onSubmit={submitMessage}
+        sx={{ display: "flex", flexDirection: "column" }}
+      >
+        <input type="hidden" name="from_name" value="Portfolio Website" />
+
         <Typography
           sx={{
             color: "#343434",
@@ -51,7 +71,6 @@ const Contact = () => {
         >
           Let's <span style={{ color: "#EBA864" }}>Connect</span>
         </Typography>
-
         <Box
           sx={{
             width: "600px",
@@ -175,10 +194,21 @@ const Contact = () => {
             />
           </Box>
         </Box>
-
         <Button
           type="submit"
-          endIcon={<Send />}
+          endIcon={
+            loading ? (
+              ""
+            ) : sent ? (
+              <Done
+                sx={{
+                  color: "green",
+                }}
+              />
+            ) : (
+              <Send />
+            )
+          }
           sx={{
             color: "#EBA864",
             fontFamily: "Montserrat, sans-sarif",
@@ -196,7 +226,22 @@ const Contact = () => {
             },
           }}
         >
-          Send
+          {loading ? (
+            <CircularProgress size={20} sx={{ mx: "25px", color: "#C27E71" }} />
+          ) : sent ? (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "5px",
+              }}
+            >
+              Sent
+            </Box>
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </Box>
     </Box>
