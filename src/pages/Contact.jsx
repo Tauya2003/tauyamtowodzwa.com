@@ -5,6 +5,7 @@ import { useSidebar } from "../context/SidebarContext";
 import useInView from "../hooks/useInView";
 import { useContext, useEffect, useState } from "react";
 import { MainContext } from "../context/MainContext";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Contact = () => {
   const { setSelected } = useSidebar();
@@ -56,6 +57,12 @@ const Contact = () => {
         sx={{ display: "flex", flexDirection: "column" }}
       >
         <input type="hidden" name="from_name" value="Portfolio Website" />
+
+        <HCaptcha
+          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+          reCaptchaCompatible={false}
+          onVerify={(token) => console.log(token)}
+        />
 
         <Typography
           sx={{
