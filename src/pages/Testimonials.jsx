@@ -1,77 +1,33 @@
-import { Box, IconButton, Stack, Typography } from "@mui/material";
-import bg3 from "../assets/images/bg3.png";
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import TestimonialCard from "../components/TestimonialCard";
-import { useSidebar } from "../context/SidebarContext";
-import useInView from "../hooks/useInView";
-import { useEffect } from "react";
+import React from "react";
+import TestimonialSlider from "../components/TestimonialSlider";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/variants";
 
 const Testimonials = () => {
-  const { setSelected } = useSidebar();
-  const [ref, isInView] = useInView();
-
-  useEffect(() => {
-    if (isInView) {
-      setSelected("testimonials");
-    }
-  }, [isInView, setSelected]);
-
   return (
-    <Box
-      id="testimonials"
-      ref={ref}
-      sx={{
-        width: "100%",
-        height: "100vh",
-        minHeight: "100vh",
-        px: "60px",
-        pt: "100px",
-        flexDirection: "column",
-        alignItems: "center",
-        display: "flex",
-        backgroundImage: `url(${bg3})`,
-        backgroundSize: "cover",
-        gap: "20px",
-        scrollSnapAlign: "start",
-        scrollSnapStop: { xs: "normal", md: "always" },
-      }}
-    >
-      <Typography
-        sx={{
-          color: "#343434",
-          fontFamily: "Montserrat, sans-sarif",
-          fontSize: "50px",
-          fontWeight: 700,
-          lineHeight: "normal",
-          mt: "60px",
-          mb: "20px",
-        }}
-      >
-        Testimonials
-      </Typography>
+    <div className="h-full bg-primary/30 py-32 text-center">
+      <div className="container mx-auto h-full flex flex-col justify-center">
+        <motion.h2
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          animate="show"
+          // exit="hidden"
+          className="h2 mb-8 xl:mb-0"
+        >
+          What clients <span className="text-accent">say.</span>
+        </motion.h2>
 
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          mr: "80px",
-          ml: "50px",
-        }}
-      >
-        <IconButton>
-          <ArrowBackIos sx={{ fontSize: "60px" }} />
-        </IconButton>
-
-        <Stack ml={"50px"}>
-          <TestimonialCard />
-        </Stack>
-
-        <IconButton>
-          <ArrowForwardIos sx={{ fontSize: "60px" }} />
-        </IconButton>
-      </Box>
-    </Box>
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          animate="show"
+          // exit="hidden"
+          className=""
+        >
+          <TestimonialSlider />
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

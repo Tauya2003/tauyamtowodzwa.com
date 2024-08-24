@@ -1,61 +1,58 @@
-import { Facebook, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  ChatBubbleOutlineOutlined,
+  EmailOutlined,
+  FolderOutlined,
+  HomeOutlined,
+  PersonOutlineOutlined,
+  SettingsOutlined,
+} from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
+
+export const navData = [
+  { id: "home", icon: <HomeOutlined />, href: "/" },
+  { id: "about", icon: <PersonOutlineOutlined />, href: "/about" },
+  { id: "services", icon: <SettingsOutlined />, href: "/services" },
+  { id: "portfolio", icon: <FolderOutlined />, href: "/portfolio" },
+  {
+    id: "testimonials",
+    icon: <ChatBubbleOutlineOutlined />,
+    href: "/testimonials",
+  },
+  { id: "contact", icon: <EmailOutlined />, href: "/contact" },
+];
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
+  console.log(pathname);
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100%",
-        position: "fixed",
-        top: 0,
-        padding: { xs: "40px 20px", md: "60px 150px 0 150px" },
-        zIndex: 100,
-      }}
-    >
-      <Typography
-        onClick={() => navigate("")}
-        sx={{
-          color: "#343434",
-          fontFamily: "Monospace",
-          fontSize: "24px",
-          fontWeight: 700,
-          lineHeight: "normal",
-          cursor: "pointer",
-        }}
-      >
-        Tauya Mtowodzwa
-      </Typography>
+    <nav className="flex flex-col items-center xl:justify-center gap-y-4 fixed h-max bottom-0 mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen">
+      <div className="flex w-full xl:flex-col items-center justify-between xl:justify-center gap-y-10 px-4 md:px-40 xl:px-0 h-[80px] xl:h-max py-8 bg-white/10 backdrop-blur-sm text-3xl xl:text-xl xl:rounded-full">
+        {navData.map((link, index) => (
+          <Link
+            className={`${
+              link.href === pathname && "text-accent"
+            } relative flex items-center group hover:text-accent transition-all duration-300`}
+            to={link.href}
+            key={index}
+          >
+            {/* Tooltip */}
+            <div className="absolute pr-14 right-0 hidden xl:group-hover:flex">
+              <div className="bg-white relative flex text-primary text-center p-[6px] rounded-[3px]">
+                <div className="text-[12px] leading-none font-semibold capitalize">
+                  {link.id}
+                </div>
 
-      <Stack
-        direction={"row"}
-        gap={"40px"}
-        display={{ xs: "none", md: "flex" }}
-      >
-        <IconButton href="" target="_blank">
-          <Facebook sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
-        </IconButton>
-        <IconButton href="" target="_blank">
-          <Instagram sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
-        </IconButton>
-        <IconButton href="https://github.com/Tauya2003" target="_blank">
-          <GitHub sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
-        </IconButton>
-        <IconButton
-          href="https://www.linkedin.com/in/tauyanashe-mtowodzwa"
-          target="_blank"
-        >
-          <LinkedIn sx={{ color: "#000", backdropFilter: "blur(10px)" }} />
-        </IconButton>
-      </Stack>
-    </Box>
+                <div className="border-solid border-l-white border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2"></div>
+              </div>
+            </div>
+
+            {/* Icon */}
+            <div className="">{link.icon}</div>
+          </Link>
+        ))}
+      </div>
+    </nav>
   );
 };
 

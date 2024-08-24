@@ -1,127 +1,70 @@
-import { Box, Typography } from "@mui/material";
-import myprojects from "../assets/images/my-projects.png";
-import bg1 from "../assets/images/bg1.png";
-import chevron from "../assets/icons/chevron.png";
-import { useSidebar } from "../context/SidebarContext";
-import useInView from "../hooks/useInView";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+import ProjectsBtn from "../components/ProjectsBtn";
+import { fadeIn } from "../utils/variants";
+import Avatar from "../components/Avatar";
+import ParticlesContainer from "../components/ParticlesContainer";
 
 const Home = () => {
-  const { setSelected } = useSidebar();
-  const [ref, isInView] = useInView();
-
-  useEffect(() => {
-    if (isInView) {
-      setSelected("home");
-    }
-  }, [isInView, setSelected]);
-
-  const scrollToPortfolio = () => {
-    const portfolio = document.getElementById("portfolio");
-    if (portfolio) {
-      portfolio.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <Box
-      id="home"
-      ref={ref}
-      sx={{
-        width: "100%",
-        height: "100vh",
-        minHeight: "100vh",
-        px: { xs: "16px", md: "60px" },
-        pt: { xs: "16px", md: "100px" },
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        backgroundImage: `url(${bg1})`,
-        backgroundPosition: "40%",
-        backgroundSize: "cover",
-        scrollSnapAlign: "start",
-        scrollSnapStop: { xs: "normal", md: "always" },
-      }}
-    >
-      <Typography
-        sx={{
-          color: "#343434",
-          fontFamily: "Montserrat, sans-sarif",
-          fontSize: { xs: "35px", md: "60px" },
-          fontWeight: 700,
-          lineHeight: { xs: "normal", md: "60px" },
-          width: { xs: "90%", md: "60%" },
-        }}
-      >
-        Crafting innovative{" "}
-        <span style={{ color: "#EBA864" }}> solutions </span> from complex
-        <span style={{ color: "#EBA864" }}> ideas</span>.
-      </Typography>
+    <div className="bg-primary/60 h-full">
+      <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
+        <div className="text-center flex flex-col justify-center xl:pt-40 xl:text-left h-full container mx-auto">
+          <motion.h1
+            variants={fadeIn("down", 0.2)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="h1"
+          >
+            Transforming Ideas <br /> Into{" "}
+            <span className="text-accent">Digital Reality</span>
+          </motion.h1>
 
-      <Typography
-        sx={{
-          mt: { xs: "10px", md: "20px" },
-          color: "#787878",
-          fontFamily: "Montserrat, sans-rarif",
-          fontSize: { xs: "15px", md: "16px" },
-          fontWeight: "500",
-          lineHeight: "normal",
-          width: { xs: "65%", md: "50%" },
-        }}
-      >
-        "I thrive on turning complex ideas into elegant software solutions and I
-        believe in working closely with clients to understand their needs and
-        deliver the best possible outcomes. Through open communication and a
-        collaborative approach, I can translate your vision into user-friendly
-        and effective software that drives real results."
-      </Typography>
+          <motion.p
+            variants={fadeIn("down", 0.3)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            delectus sed velit ex repudiandae similique nulla voluptas nisi
+            aliquam distinctio!
+          </motion.p>
 
-      <Box
-        sx={{
-          mt: "40px",
-          width: { xs: "90px", md: "130px" },
-          height: { xs: "80px", md: "130px" },
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-        }}
-      >
-        <img
-          className="rotating"
-          src={myprojects}
-          alt="my-projects"
-          style={{
-            width: "100%",
-            position: "absolute",
-            animation: "rotate 10s linear infinite",
-          }}
-        />
-        <Box
-          sx={{
-            width: { xs: "70px", md: "105px" },
-            height: { xs: "70px", md: "105px" },
-            border: { xs: "2.75px solid #EBA864", md: "5px solid #EBA864" },
-            borderRadius: "50%",
-            display: "grid",
-            placeContent: "center",
-            p: { xs: "23px", md: 0 },
-          }}
+          <div className="flex justify-center xl:hidden relative">
+            <ProjectsBtn />
+          </div>
+
+          <motion.div
+            variants={fadeIn("down", 0.4)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="hidden xl:flex"
+          >
+            <ProjectsBtn />
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="w-[1200px] h-full absolute bottom-0 right-0">
+        <div className="bg-none xl:bg-explosion xl:bg:cover xl:bg-right bg-no-repeat h-full w-full absolute mix-blend-color-dodge translate-z-0"></div>
+
+        <ParticlesContainer />
+
+        <motion.div
+          variants={fadeIn("up", 0.5)}
+          initial="hidden"
+          animate="show"
+          // exit="hidden"
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32 lg:bottom-0 lg:right-[8%]"
         >
-          <img
-            onClick={scrollToPortfolio}
-            style={{
-              cursor: "pointer",
-              animation: "scrollRight 2s ease infinite",
-              width: "100%",
-              // transform: "rotate(90deg)",
-            }}
-            src={chevron}
-            alt="chevron"
-          />
-        </Box>
-      </Box>
-    </Box>
+          <Avatar />
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

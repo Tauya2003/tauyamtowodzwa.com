@@ -1,39 +1,24 @@
-import { Box } from "@mui/material";
-import React from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Services from "../pages/Services";
-import Work from "../pages/Work";
-import Testimonials from "../pages/Testimonials";
-import Contact from "../pages/Contact";
+import { AnimatePresence, motion } from "framer-motion";
+import Transition from "../components/Transition";
+import Header from "../components/Header";
 
 const Layout = () => {
+  const location = useLocation();
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        height: "100vh",
-        overflowY: "scroll",
-        position: "relative",
-        scrollSnapType: "y mandatory",
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-      }}
-    >
+    <div className={`page bg-site text-white bg-no-repeat relative`}>
+      <Header />
       <Navbar />
-      <Sidebar />
-      <Home />
-      <About />
-      <Services />
-      <Work />
-      <Testimonials />
-      <Contact />
-    </Box>
+
+      <AnimatePresence mode="wait">
+        <motion.div key={location.key} className="h-full">
+          <Transition />
+          <Outlet />
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 };
 

@@ -1,74 +1,51 @@
-import { Box, Typography } from "@mui/material";
-import bg3 from "../assets/images/bg3.png";
-import ServicesSliderCard from "../components/ServicesSliderCard";
-import { useSidebar } from "../context/SidebarContext";
-import useInView from "../hooks/useInView";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+import Circles from "../components/Circles";
+import Bulb from "../components/Bulb";
+import ServiceSlider from "../components/ServiceSlider";
+import { fadeIn } from "../utils/variants";
 
 const Services = () => {
-  const { setSelected } = useSidebar();
-  const [ref, isInView] = useInView();
-
-  useEffect(() => {
-    if (isInView) {
-      setSelected("services");
-    }
-  }, [isInView, setSelected]);
-
   return (
-    <Box
-      id="services"
-      ref={ref}
-      sx={{
-        width: "100%",
-        height: "100vh",
-        minHeight: "100vh",
-        px: "60px",
-        pt: "100px",
-        alignItems: "center",
-        display: "flex",
-        backgroundImage: `url(${bg3})`,
-        backgroundSize: "cover",
-        gap: "20px",
-        scrollSnapAlign: "start",
-        scrollSnapStop: { xs: "normal", md: "always" },
-      }}
-    >
-      <Box sx={{ mt: "-70px", ml: "50px" }}>
-        <Typography
-          sx={{
-            color: "#343434",
-            fontFamily: "Montserrat, sans-sarif",
-            fontSize: "60px",
-            fontWeight: 700,
-            lineHeight: "normal",
-            mb: "20px",
-          }}
-        >
-          My <span style={{ color: "#EBA864" }}>Services</span>
-        </Typography>
+    <div className="h-full bg-primary/30 py-36 flex items-center">
+      <Circles />
+      <div className="container mx-auto ">
+        <div className="flex flex-col xl:flex-row gap-x-8">
+          <div className="text-center flex xl:w-[30vw] flex-col xl:text-left mb-4 xl:mb-0">
+            <motion.h2
+              variants={fadeIn("up", 0.2)}
+              initial="hidden"
+              animate="show"
+              //  exit='hidden'
+              className="h2 xl:mt-8"
+            >
+              My Services <span className="text-accent">.</span>
+            </motion.h2>
 
-        <Typography
-          sx={{
-            color: "#787878",
-            fontFamily: "Montserrat, sans-sarif",
-            fontSize: "16px",
-            fontWeight: 500,
-            lineHeight: "normal",
-          }}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-          suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan
-          lacus vel facilisis.
-        </Typography>
-      </Box>
+            <motion.p
+              variants={fadeIn("up", 0.4)}
+              initial="hidden"
+              animate="show"
+              //  exit='hidden'
+              className="mb-4 max-w-[400px] mx-auto lg:mx-0"
+            >
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptatibus tempora tenetur sequi animi consequatur porro!
+            </motion.p>
+          </div>
 
-      <Box sx={{ mr: "80px", display: "flex", gap: "20px" }}>
-        <ServicesSliderCard />
-        <ServicesSliderCard />
-      </Box>
-    </Box>
+          <motion.div
+            variants={fadeIn("down", 0.6)}
+            initial="hidden"
+            animate="show"
+            //  exit='hidden'
+            className="w-full xl:max-w-[65%]"
+          >
+            <ServiceSlider />
+          </motion.div>
+        </div>
+      </div>
+      <Bulb />
+    </div>
   );
 };
 

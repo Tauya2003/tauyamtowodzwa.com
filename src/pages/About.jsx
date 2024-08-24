@@ -1,163 +1,222 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
-import bg2 from "../assets/images/bg2.png";
-import { useEffect, useState } from "react";
-import { useSidebar } from "../context/SidebarContext";
-import useInView from "../hooks/useInView";
+import { useState } from "react";
+import Circles from "../components/Circles";
+import Avatar from "../components/Avatar";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/variants";
+import CountUp from "react-countup";
+import {
+  FaCss3,
+  FaHtml5,
+  FaJs,
+  FaWordpress,
+  FaFigma,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiAdobephotoshop,
+  SiAdobexd,
+  SiFramer,
+  SiNextdotjs,
+} from "react-icons/si";
 
 const About = () => {
-  const [selectedTab, setSelectedTab] = useState("Skills");
-  const tabs = ["Skills", "Experience", "Credentials"];
+  const [index, setIndex] = useState(0);
 
-  const { setSelected } = useSidebar();
-  const [ref, isInView] = useInView();
-
-  useEffect(() => {
-    if (isInView) {
-      setSelected("about");
-    }
-  }, [isInView, setSelected]);
+  const aboutData = [
+    {
+      title: "skills",
+      info: [
+        {
+          title: "Web Development",
+          icons: [
+            <FaHtml5 />,
+            <FaCss3 />,
+            <FaJs />,
+            <FaReact />,
+            <SiNextdotjs />,
+            <SiFramer />,
+            <FaWordpress />,
+          ],
+        },
+        {
+          title: "UI/UX Design",
+          icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+        },
+      ],
+    },
+    {
+      title: "awards",
+      info: [
+        {
+          title: "Webby Awards - Honoree",
+          stage: "2011 - 2012",
+        },
+        {
+          title: "Adobe Design Achievement Awards - Finalist",
+          stage: "2009 - 2010",
+        },
+      ],
+    },
+    {
+      title: "experience",
+      info: [
+        {
+          title: "UX/UI Designer - XYZ Company",
+          stage: "2012 - 2023",
+        },
+        {
+          title: "Web Developer - ABC Agency",
+          stage: "2010 - 2012",
+        },
+        {
+          title: "Intern - DEF Corporation",
+          stage: "2008 - 2010",
+        },
+      ],
+    },
+    {
+      title: "credentials",
+      info: [
+        {
+          title: "Web Development - ABC University, LA, CA",
+          stage: "2011",
+        },
+        {
+          title: "Computer Science Diploma - AV Technical Institute",
+          stage: "2009",
+        },
+        {
+          title: "Certified Graphic Designer - ABC Institute, Los Angeles, CA",
+          stage: "2006",
+        },
+      ],
+    },
+  ];
 
   return (
-    <Box
-      id="about"
-      ref={ref}
-      sx={{
-        width: "100%",
-        height: "100vh",
-        minHeight: "100vh",
-        px: "15%",
-        pt: "160px",
-        display: "flex",
-        justifyContent: "center",
-        backgroundImage: `url(${bg2})`,
-        backgroundSize: "cover",
-        gap: "30px",
-        scrollSnapAlign: "start",
-        scrollSnapStop: { xs: "normal", md: "always" },
-      }}
-    >
-      <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <Typography
-          sx={{
-            color: "#343434",
-            fontFamily: "Montserrat, sans-sarif",
-            fontSize: "60px",
-            fontWeight: 700,
-            lineHeight: "60px",
-          }}
-        >
-          Transforming <span style={{ color: "#EBA864" }}> Ideas </span> into
-          Digital
-        </Typography>
+    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+      <Circles />
 
-        <Typography
-          sx={{
-            mt: "20px",
-            color: "#787878",
-            fontFamily: "Montserrat, sans-rarif",
-            fontSize: "16px",
-            fontWeight: "500",
-            lineHeight: "normal",
-          }}
-        >
-          "I thrive on turning complex ideas into elegant software solutions and
-          I believe in working closely with clients to understand their needs
-          and deliver the best possible outcomes. Through open communication and
-          a collaborative approach, I can translate your vision into
-          user-friendly and effective software that drives real results."
-        </Typography>
+      <motion.div
+        variants={fadeIn("right", 0.2)}
+        initial="hidden"
+        animate="show"
+        // exit="hidden"
+        className="hidden xl:flex absolute bottom-0 -left-[370px]"
+      >
+        {/* <Avatar /> */}
+      </motion.div>
 
-        <Stack>
-          <Box>
-            <Typography
-              sx={{
-                color: "#EBA864",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "64px",
-                fontWeight: 700,
-                lineHeight: "normal",
-              }}
-            >
-              10+
-            </Typography>
-
-            <Typography
-              sx={{
-                color: "#343434",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "19px",
-                fontWeight: 700,
-                lineHeight: "normal",
-              }}
-            >
-              Years of <br />
-              experience
-            </Typography>
-          </Box>
-        </Stack>
-      </Box>
-
-      <Box>
-        <Stack direction={"row"} gap={7}>
-          {tabs.map((tab, index) => (
-            <Button
-              key={index}
-              sx={{
-                color: selectedTab === tab ? "#EBA864" : "#343434",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "20px",
-                fontWeight: 700,
-                lineHeight: "normal",
-                p: 0,
-                minWidth: 0,
-                textTransform: "none",
-                position: "relative",
-
-                "&:hover": {
-                  bgcolor: "transparent",
-                },
-
-                "&:after": {
-                  content: '""',
-                  position: "absolute",
-                  bottom: -4,
-                  left: 0,
-                  width: "65px",
-                  height: "2px",
-                  bgcolor: selectedTab === tab ? "#EBA864" : "#343434",
-                },
-              }}
-            >
-              {tab}
-            </Button>
-          ))}
-        </Stack>
-
-        <Stack mt={"40px"} pl={"10px"}>
-          <Typography
-            sx={{
-              color: "#787878",
-              fontFamily: "Montserrat, sans-sarif",
-              fontSize: "20px",
-              fontWeight: 500,
-            }}
+      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+        <div className="flex-1 flex flex-col justify-center">
+          <motion.h2
+            variants={fadeIn("right", 0.2)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="h2"
           >
-            Web Development
-          </Typography>
-
-          <Typography
-            sx={{
-              color: "#787878",
-              fontFamily: "Montserrat, sans-sarif",
-              fontSize: "20px",
-              fontWeight: 500,
-            }}
+            Captivating <span className="text-accent">stories</span> birth
+            magnificent designs.
+          </motion.h2>
+          <motion.p
+            variants={fadeIn("right", 0.4)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
           >
-            Python
-          </Typography>
-        </Stack>
-      </Box>
-    </Box>
+            10 years ago i began freelancing as a developer. Since then, I've
+            done remote work for agencies, consulted for startups and
+            collaborated on digital products business and consumer use.
+          </motion.p>
+
+          <motion.div
+            variants={fadeIn("right", 0.6)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+          >
+            <div className="flex flex-1 xl:gap-x-6">
+              {/* experience */}
+              <div className="relative after:w-[1px] after:h-full after:bg-white/10 after:absolute after:right-0 after:top-0">
+                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
+                  <CountUp start={0} end={10} duration={5} /> +
+                </div>
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
+                  Years of experience
+                </div>
+              </div>
+
+              {/* experience */}
+              <div className="relative after:w-[1px] after:h-full after:bg-white/10 after:absolute after:right-0 after:top-0">
+                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
+                  <CountUp start={0} end={250} duration={5} /> +
+                </div>
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
+                  Satisfied Clients
+                </div>
+              </div>
+
+              {/* projects */}
+              <div className="relative after:w-[1px]">
+                <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
+                  <CountUp start={0} end={20} duration={5} /> +
+                </div>
+                <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
+                  Finished Projects
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          animate="show"
+          // exit="hidden"
+          className="flex flex-col w-full xl:max-w-[48%] h-[480px]"
+        >
+          <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+            {aboutData.map((item, idx) => (
+              <div
+                key={idx}
+                onClick={() => setIndex(idx)}
+                className={`${
+                  index === idx &&
+                  "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
+                } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+              >
+                {item.title}
+              </div>
+            ))}
+          </div>
+
+          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4  items-center xl:items-start">
+            {aboutData[index].info.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex-1 flex flex-col md: flex-row max-w-max gap-x-2 items-center text-white/60"
+              >
+                <div className="font-light mb-2 md:mb-0">{item.title}</div>
+                <div className="hidden md:flex">-</div>
+                <div className="">{item.stage}</div>
+
+                <div className="flex gap-x-4">
+                  {item.icons?.map((icon, idx) => (
+                    <div key={idx} className="text-2xl text-white">
+                      {icon}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

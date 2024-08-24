@@ -1,257 +1,47 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
-import bg4 from "../assets/images/bg4.png";
-import { Done, Send } from "@mui/icons-material";
-import { useSidebar } from "../context/SidebarContext";
-import useInView from "../hooks/useInView";
-import { useContext, useEffect, useState } from "react";
-import { MainContext } from "../context/MainContext";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/variants";
+import { BsArrowRight } from "react-icons/bs";
 
 const Contact = () => {
-  const { setSelected } = useSidebar();
-  const [ref, isInView] = useInView();
-  const { submitMessage, loading, success, error } = useContext(MainContext);
-  const [sent, setSent] = useState(success);
-
-  useEffect(() => {
-    if (success) {
-      setSent(true);
-      const timer = setTimeout(() => {
-        setSent(false);
-      }, 3000);
-
-      return () => clearInterval(timer);
-    }
-  }, [success]);
-
-  useEffect(() => {
-    if (isInView) {
-      setSelected("contact");
-    }
-  }, [isInView, setSelected]);
-
   return (
-    <Box
-      id="contact"
-      ref={ref}
-      sx={{
-        width: "100%",
-        height: "100vh",
-        minHeight: "100vh",
-        px: "60px",
-        pt: "100px",
-        flexDirection: "column",
-        alignItems: "center",
-        display: "flex",
-        backgroundImage: `url(${bg4})`,
-        backgroundSize: "cover",
-        gap: "20px",
-        overflow: "hidden",
-        scrollSnapAlign: "start",
-        scrollSnapStop: { xs: "normal", md: "always" },
-      }}
-    >
-      <Box
-        component={"form"}
-        onSubmit={submitMessage}
-        sx={{ display: "flex", flexDirection: "column" }}
-      >
-        <input type="hidden" name="from_name" value="Portfolio Website" />
-
-        <HCaptcha
-          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-          reCaptchaCompatible={false}
-          onVerify={(token) => console.log(token)}
-        />
-
-        <Typography
-          sx={{
-            color: "#343434",
-            fontFamily: "Montserrat, sans-sarif",
-            fontSize: "38px",
-            fontWeight: 700,
-            lineHeight: "normal",
-            mt: "20px",
-            alignSelf: "stretch",
-            textAlign: "center",
-          }}
-        >
-          Let's <span style={{ color: "#EBA864" }}>Connect</span>
-        </Typography>
-        <Box
-          sx={{
-            width: "600px",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            mt: "30px",
-          }}
-        >
-          <Box
-            sx={{
-              p: "25px",
-              borderRadius: "20px",
-              boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.1)",
-              backdropFilter: "blur(10px)",
-              width: "48%",
-            }}
+    <div className="h-full bg-primary/30">
+      <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
+        <div className="flex flex-col w-full max-w-[780px]">
+          <motion.h2
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="h2 text-center mb-12"
           >
-            <input
-              required
-              type="text"
-              name="name"
-              placeholder="Name"
-              style={{
-                border: "none",
-                outline: "none",
-                width: "100%",
-                backgroundColor: "transparent",
-                color: "#343434",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "normal",
-              }}
-            />
-          </Box>
+            Let's <span className="text-accent">connect.</span>
+          </motion.h2>
 
-          <Box
-            sx={{
-              p: "25px",
-              borderRadius: "20px",
-              boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.1)",
-              backdropFilter: "blur(10px)",
-              width: "48%",
-            }}
+          <motion.form
+            variants={fadeIn("up", 0.4)}
+            initial="hidden"
+            animate="show"
+            // exit="hidden"
+            className="flel-1 flex flex-col gap-6 w-full mx-auto"
           >
-            <input
-              required
-              type="email"
-              name="email"
-              placeholder="Email"
-              style={{
-                border: "none",
-                outline: "none",
-                width: "100%",
-                backgroundColor: "transparent",
-                color: "#343434",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "normal",
-              }}
-            />
-          </Box>
+            <div className="flex gap-x-6 w-full">
+              <input type="text" placeholder="name" className="input" />
+              <input type="email" placeholder="email" className="input" />
+            </div>
 
-          <Box
-            sx={{
-              p: "25px",
-              borderRadius: "20px",
-              boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.1)",
-              backdropFilter: "blur(10px)",
-              width: "100%",
-              mt: "4%",
-            }}
-          >
-            <input
-              required
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              style={{
-                border: "none",
-                outline: "none",
-                width: "100%",
-                backgroundColor: "transparent",
-                color: "#343434",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "normal",
-              }}
-            />
-          </Box>
+            <input type="text" placeholder="subject" className="input" />
+            <textarea placeholder="message" className="textarea"></textarea>
 
-          <Box
-            sx={{
-              p: "25px",
-              borderRadius: "20px",
-              boxShadow: "0px 0px 20px 0px rgba(0,0,0,0.1)",
-              backdropFilter: "blur(10px)",
-              width: "100%",
-              mt: "4%",
-            }}
-          >
-            <textarea
-              required
-              name="message"
-              rows={6}
-              placeholder="Type your message here..."
-              style={{
-                border: "none",
-                outline: "none",
-                width: "100%",
-                backgroundColor: "transparent",
-                color: "#343434",
-                fontFamily: "Montserrat, sans-sarif",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "normal",
-              }}
-            />
-          </Box>
-        </Box>
-        <Button
-          type="submit"
-          endIcon={
-            loading ? (
-              ""
-            ) : sent ? (
-              <Done
-                sx={{
-                  color: "green",
-                }}
-              />
-            ) : (
-              <Send />
-            )
-          }
-          sx={{
-            color: "#EBA864",
-            fontFamily: "Montserrat, sans-sarif",
-            fontSize: "16px",
-            fontWeight: 700,
-            lineHeight: "normal",
-            textTransform: "capitalize",
-            mt: "30px",
-            ml: "auto",
-            mr: "20px",
-            p: 0,
-
-            "&:hover": {
-              backgroundColor: "transparent",
-            },
-          }}
-        >
-          {loading ? (
-            <CircularProgress size={20} sx={{ mx: "25px", color: "#C27E71" }} />
-          ) : sent ? (
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "5px",
-              }}
-            >
-              Sent
-            </Box>
-          ) : (
-            "Send Message"
-          )}
-        </Button>
-      </Box>
-    </Box>
+            <button className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group">
+              <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+                Let's talk
+              </span>
+              <BsArrowRight className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]" />
+            </button>
+          </motion.form>
+        </div>
+      </div>
+    </div>
   );
 };
 
