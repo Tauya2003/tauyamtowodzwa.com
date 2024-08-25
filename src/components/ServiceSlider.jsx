@@ -9,27 +9,20 @@ const data = [
   {
     icon: <RxDesktop />,
     title: "Development",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. sit amet consectetur adipisicing elit. lo",
+  },
+  {
+    icon: <RxDesktop />,
+    title: "SEO",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing sit amet consectetur adipisicing elit.  elit.",
   },
   {
     icon: <RxDesktop />,
     title: "Development",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    icon: <RxDesktop />,
-    title: "Development",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    icon: <RxDesktop />,
-    title: "Development",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    icon: <RxDesktop />,
-    title: "Development",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing sit amet consectetur adipisicing elit.  elit.",
   },
 ];
 
@@ -51,16 +44,18 @@ const ServiceSlider = () => {
         clickable: true,
       }}
       modules={[FreeMode, Pagination]}
-      className="h-[240px] sm:h-[340px]"
+      className="h-[300px] sm:h-[340px]"
     >
       {data.map((item, idx) => (
         <SwiperSlide key={idx}>
-          <div className="bg-[rgba(65,46,123,0.15)] h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(87,65,169,0.15)] transition-all duration-300">
+          <div className="border-transparent border-[1px] shadow-xl backdrop-blur-sm shadow-black/10 h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:border-accent transition-all duration-300">
             <div className="text-4xl text-accent mb-4">{item.icon}</div>
 
             <div className="mb-8 text-[#343434] ">
               <div className="mb-2 text-lg">{item.title}</div>
-              <p className="max-w-[350px] leading-normal">{item.description}</p>
+              <p className="max-w-[350px] leading-tight font-urbanist">
+                {item.description}
+              </p>
             </div>
 
             <div className="text-3xl text-[#343434]">
