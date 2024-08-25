@@ -26,7 +26,7 @@
 
 @layer base {
   body {
-    @apply bg-[secondary] overflow-hidden leading-relaxed;
+    @apply bg-[secondary] overflow-hidden leading-relaxed font-urbanist;
   }
   .page {
     @apply w-full h-screen overflow-hidden;
@@ -38,7 +38,7 @@
     @apply text-[35px] leading-tight md:text-[54px] md:leading-[1.3] mb-4 font-semibold text-[#343434];
   }
   p {
-    @apply leading-[1.8] text-black/60 font-light;
+    @apply leading-[1.8] text-black/60 font-light font-mono;
   }
   .btn,
   .input {

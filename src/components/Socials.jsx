@@ -16,7 +16,7 @@ export const socials = [
   {
     name: "LinkedIn",
     Icon: <LinkedIn />,
-    href: "",
+    href: "https://www.linkedin.com/in/tauyanashe-mtowodzwa",
   },
   {
     name: "Facebook",

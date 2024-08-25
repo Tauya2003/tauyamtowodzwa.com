@@ -6,7 +6,7 @@ export default {
       padding: {
         DEFAULT: "15px",
       },
-    }, 
+    },
     screens: {
       sm: "640px",
       md: "768px",
@@ -29,8 +29,10 @@ export default {
         "spin-slow": "spin 6s linear infinite",
       },
       fontFamily: {
-        poppins: [`var(--font-poppins)`, "sans-serif"],
-        sora: [`var(--font-sora)`, "sans-serif"],
+        urbanist: [`Urbanist`, "sans-serif"],
+        mono: ["monospace", "sans-sarif"],
+        montserrat: ["'Montserrat Alternates'", "sans-sarif"],
+        poppins: ["poppins", "sans-sarif"],
       },
     },
   },
@@ -39,5 +41,5 @@ export default {
       DEFAULT: "15px",
     },
   },
-  plugins: [require('tailwind-scrollbar')],
+  plugins: [require("tailwind-scrollbar")],
 };
