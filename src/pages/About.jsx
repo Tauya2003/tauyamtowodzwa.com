@@ -8,17 +8,22 @@ import {
   FaCss3,
   FaHtml5,
   FaJs,
-  FaWordpress,
-  FaFigma,
   FaReact,
+  FaPython,
+  FaNodeJs,
+  FaGit,
 } from "react-icons/fa";
 import {
-  SiAdobephotoshop,
-  SiAdobexd,
+  SiDjango,
+  SiExpress,
   SiFramer,
+  SiMongodb,
+  SiNativescript,
   SiNextdotjs,
+  SiTailwindcss,
 } from "react-icons/si";
 import Container from "../layout/Container";
+import ParticlesContainer from "../components/ParticlesContainer";
 
 const About = () => {
   const [index, setIndex] = useState(0);
@@ -30,31 +35,21 @@ const About = () => {
         {
           title: "Web Development",
           icons: [
-            <FaHtml5 />,
-            <FaCss3 />,
-            <FaJs />,
+            <FaGit />,
             <FaReact />,
+            <FaJs />,
+            <FaPython />,
+            <SiDjango />,
+            <FaHtml5 />,
+            <FaNodeJs />,
+            <SiExpress />,
+            <SiMongodb />,
             <SiNextdotjs />,
+            <SiNativescript />,
             <SiFramer />,
-            <FaWordpress />,
+            <FaCss3 />,
+            <SiTailwindcss />,
           ],
-        },
-        {
-          title: "UI/UX Design",
-          icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
-        },
-      ],
-    },
-    {
-      title: "awards",
-      info: [
-        {
-          title: "Webby Awards - Honoree",
-          stage: "2011 - 2012",
-        },
-        {
-          title: "Adobe Design Achievement Awards - Finalist",
-          stage: "2009 - 2010",
         },
       ],
     },
@@ -62,16 +57,8 @@ const About = () => {
       title: "experience",
       info: [
         {
-          title: "UX/UI Designer - XYZ Company",
-          stage: "2012 - 2023",
-        },
-        {
-          title: "Web Developer - ABC Agency",
-          stage: "2010 - 2012",
-        },
-        {
-          title: "Intern - DEF Corporation",
-          stage: "2008 - 2010",
+          title: "Web Developer - LofiCode",
+          stage: "2023 - Present",
         },
       ],
     },
@@ -79,16 +66,13 @@ const About = () => {
       title: "credentials",
       info: [
         {
-          title: "Web Development - ABC University, LA, CA",
-          stage: "2011",
+          title:
+            "Software Engineering - University of Zimbabwe, Harare, Zimbabwe",
+          stage: "2022 - Current",
         },
         {
-          title: "Computer Science Diploma - AV Technical Institute",
-          stage: "2009",
-        },
-        {
-          title: "Certified Graphic Designer - ABC Institute, Los Angeles, CA",
-          stage: "2006",
+          title: "Certified Legacy Javascript Algorithms - freeCodeCamp.org",
+          stage: "2023",
         },
       ],
     },
@@ -96,21 +80,23 @@ const About = () => {
 
   return (
     <Container>
+        <ParticlesContainer/>
       <div className="h-full bg-primary py-32 text-center xl:text-left">
-        <Circles />
+        {/* <Circles /> */}
 
         <motion.div
           variants={fadeIn("right", 0.2)}
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="hidden xl:flex absolute bottom-0 -left-[370px] -z-10"
+          className="hidden xl:flex absolute bottom-0 -left-[420px]"
         >
           <Avatar />
         </motion.div>
 
-        <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
-          <div className="flex-1 flex flex-col justify-center">
+        <div className="container mx-auto h-full flex flex-col items-center justify-center xl:flex-row gap-x-6">
+          {/* left / top */}
+          <div className="flex-1 flex flex-col justify-center pt-20">
             <motion.h2
               variants={fadeIn("right", 0.2)}
               initial="hidden"
@@ -128,7 +114,7 @@ const About = () => {
               exit="hidden"
               className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
             >
-              10 years ago i began freelancing as a developer. Since then, I've
+              12 years ago i began freelancing as a developer. Since then, I've
               done remote work for agencies, consulted for startups and
               collaborated on digital products business and consumer use.
             </motion.p>
@@ -144,7 +130,7 @@ const About = () => {
                 {/* experience */}
                 <div className="relative after:w-[1px] after:h-full after:bg-white/10 after:absolute after:right-0 after:top-0">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                    <CountUp start={0} end={10} duration={5} /> +
+                    <CountUp start={0} end={3} duration={5} /> +
                   </div>
                   <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
                     Years of experience
@@ -154,7 +140,7 @@ const About = () => {
                 {/* experience */}
                 <div className="relative after:w-[1px] after:h-full after:bg-white/10 after:absolute after:right-0 after:top-0">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                    <CountUp start={0} end={250} duration={5} /> +
+                    <CountUp start={0} end={20} duration={5} /> +
                   </div>
                   <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
                     Satisfied Clients
@@ -164,7 +150,7 @@ const About = () => {
                 {/* projects */}
                 <div className="relative after:w-[1px]">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                    <CountUp start={0} end={20} duration={5} /> +
+                    <CountUp start={0} end={15} duration={5} /> +
                   </div>
                   <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]">
                     Finished Projects
@@ -174,12 +160,13 @@ const About = () => {
             </motion.div>
           </div>
 
+          {/* right / bottom */}
           <motion.div
             variants={fadeIn("left", 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="flex flex-col w-full xl:max-w-[48%] h-[480px]"
+            className="flex flex-col w-full xl:max-w-[48%] h-[480px] xl:pt-10"
           >
             <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
               {aboutData.map((item, idx) => (
@@ -187,8 +174,9 @@ const About = () => {
                   key={idx}
                   onClick={() => setIndex(idx)}
                   className={`${
-                    index === idx ?
-                    "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300" : "text-[#343434] "
+                    index === idx
+                      ? "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
+                      : "text-[#343434] "
                   } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-black after:absolute after:-bottom-1 after:left-0`}
                 >
                   {item.title}
@@ -200,13 +188,15 @@ const About = () => {
               {aboutData[index].info.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-black/60"
+                  className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 text-black/60"
                 >
-                  <div className="font-light mb-2 md:mb-0">{item.title}</div>
-                  <div className="hidden md:flex">-</div>
+                  <div className="font-light mb-2 md:mb-0 flex-1">
+                    {item.title}
+                  </div>
+                  <div className="hidden md:flex text-accent font-extrabold">-</div>
                   <div className="">{item.stage}</div>
 
-                  <div className="flex gap-x-4">
+                  <div className="flex flex-wrap justify-center xl:justify-start gap-y-3 gap-x-4 xl:max-w-sm">
                     {item.icons?.map((icon, idx) => (
                       <div key={idx} className="text-2xl text-black">
                         {icon}
