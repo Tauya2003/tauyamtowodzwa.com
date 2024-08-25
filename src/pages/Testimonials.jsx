@@ -3,10 +3,12 @@ import TestimonialSlider from "../components/TestimonialSlider";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/variants";
 import Container from "../layout/Container";
+import ParticlesContainer from "../components/ParticlesContainer";
 
 const Testimonials = () => {
   return (
     <Container>
+      <ParticlesContainer />
       <div className="h-full bg-primary py-32 text-center">
         <div className="container mx-auto h-full flex flex-col justify-center">
           <motion.h2
