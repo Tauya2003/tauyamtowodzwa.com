@@ -16,7 +16,7 @@ const Home = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="h1 mb-5 leading-none"
+              className="h1 mb-5 leading-none z-10"
             >
               Crafting Innovative
               <br /> <span className="text-accent">Solutions</span> From <br />
@@ -28,7 +28,7 @@ const Home = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
+              className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16 z-10"
             >
               "I thrive on turning complex ideas into elegant software solutions
               and I believe in working closely with clients to understand their
@@ -55,9 +55,9 @@ const Home = () => {
         </div>
 
         <div className="w-full h-full absolute bottom-0 right-0">
-          <div className="bg-none xl:bg-explosions xl:bg:cover xl:bg-right bg-no-repeat h-full w-full absolute mix-blend-color-dodge translate-z-0"></div>
-
+          <div className="bg-none xl:bg-brush xl:bg-[cover] xl:bg-[500px] bg-no-repeat h-full w-full absolute translate-z-0"></div>
           <ParticlesContainer />
+
 
           <motion.div
             variants={fadeIn("up", 0.5)}

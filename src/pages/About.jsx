@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Circles from "../components/Circles";
-import Avatar from "../components/Avatar";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/variants";
 import CountUp from "react-countup";
@@ -24,6 +23,7 @@ import {
 } from "react-icons/si";
 import Container from "../layout/Container";
 import ParticlesContainer from "../components/ParticlesContainer";
+import Avatar2 from "../components/Avatar2";
 
 const About = () => {
   const [index, setIndex] = useState(0);
@@ -82,21 +82,21 @@ const About = () => {
     <Container>
         <ParticlesContainer/>
       <div className="h-full bg-primary py-32 text-center xl:text-left">
-        {/* <Circles /> */}
+        <Circles />
 
         <motion.div
           variants={fadeIn("right", 0.2)}
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="hidden xl:flex absolute bottom-0 -left-[420px]"
+          className="hidden xl:flex absolute mt-[100px] -left-[200px] w-[300px]"
         >
-          <Avatar />
+          <Avatar2 />
         </motion.div>
 
         <div className="container mx-auto h-full flex flex-col items-center justify-center xl:flex-row gap-x-6">
           {/* left / top */}
-          <div className="flex-1 flex flex-col justify-center pt-20">
+          <div className="flex-1 flex flex-col justify-center pt-20 z-10">
             <motion.h2
               variants={fadeIn("right", 0.2)}
               initial="hidden"

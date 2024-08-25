@@ -20,7 +20,7 @@ export default {
         accent: "#EBA864",
       },
       backgroundImage: {
-        explosion: 'url("/bg-explosion.png")',
+        brush: 'url("/bg-brush.png")',
         circles: 'url("/bg-circles.png")',
         circleStar: 'url("/circle-star.svg")',
         site: 'url("/site-bg.svg")',
