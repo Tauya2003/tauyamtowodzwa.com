@@ -7,7 +7,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-y-6 py-8 ">
           <Link to={"/"}>
-            <h1 className="text-xl">
+            <h1 className="text-xl text-[#343434]">
               Tauya <span>Mtowodzwa</span>
             </h1>
           </Link>

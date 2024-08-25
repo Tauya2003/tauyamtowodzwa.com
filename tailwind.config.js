@@ -15,9 +15,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#131424",
-        secondary: "#393A47",
-        accent: "#F13024",
+        primary: "#e5e5e5",
+        secondary: "#474039",
+        accent: "#EBA864",
       },
       backgroundImage: {
         explosion: 'url("/bg-explosion.png")',

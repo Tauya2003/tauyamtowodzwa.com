@@ -96,7 +96,7 @@ const About = () => {
 
   return (
     <Container>
-      <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+      <div className="h-full bg-primary py-32 text-center xl:text-left">
         <Circles />
 
         <motion.div
@@ -140,7 +140,7 @@ const About = () => {
               exit="hidden"
               className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
             >
-              <div className="flex flex-1 xl:gap-x-6">
+              <div className="flex flex-1 xl:gap-x-6 text-[#343434]">
                 {/* experience */}
                 <div className="relative after:w-[1px] after:h-full after:bg-white/10 after:absolute after:right-0 after:top-0">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
@@ -187,9 +187,9 @@ const About = () => {
                   key={idx}
                   onClick={() => setIndex(idx)}
                   className={`${
-                    index === idx &&
-                    "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
-                  } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                    index === idx ?
+                    "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300" : "text-[#343434] "
+                  } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-black after:absolute after:-bottom-1 after:left-0`}
                 >
                   {item.title}
                 </div>
@@ -200,7 +200,7 @@ const About = () => {
               {aboutData[index].info.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60"
+                  className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-black/60"
                 >
                   <div className="font-light mb-2 md:mb-0">{item.title}</div>
                   <div className="hidden md:flex">-</div>
@@ -208,7 +208,7 @@ const About = () => {
 
                   <div className="flex gap-x-4">
                     {item.icons?.map((icon, idx) => (
-                      <div key={idx} className="text-2xl text-white">
+                      <div key={idx} className="text-2xl text-black">
                         {icon}
                       </div>
                     ))}
