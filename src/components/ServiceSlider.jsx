@@ -4,26 +4,34 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
+import { FaMobile } from "react-icons/fa";
+import { BiLaptop } from "react-icons/bi";
+import { TbSeo } from "react-icons/tb";
 
 const data = [
   {
     icon: <RxDesktop />,
-    title: "Development",
+    title: "Custom Website Design and Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. sit amet consectetur adipisicing elit. lo",
+      "Creating unique and responsive websites tailored to specific client needs.",
   },
   {
-    icon: <RxDesktop />,
-    title: "SEO",
+    icon: <BiLaptop />,
+    title: "Web application Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing sit amet consectetur adipisicing elit.  elit.",
+      "Bulding web-based applications for various purposes, such as e-commerce, content management systems and business tools.",
   },
   {
-    icon: <RxDesktop />,
-    title: "Development",
+    icon: <FaMobile />,
+    title: "Mobile App Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing sit amet consectetur adipisicing elit.  elit.",
+      "Developing native or hybrid mobile apps for IOS and Andriod platforms.",
   },
+  {
+    icon:<TbSeo/>,
+    title: "SEO Optimization",
+    description: "Optimizing websites for search engines to improve visibility and organic traffic."
+  }
 ];
 
 const ServiceSlider = () => {
@@ -44,15 +52,15 @@ const ServiceSlider = () => {
         clickable: true,
       }}
       modules={[FreeMode, Pagination]}
-      className="h-[300px] sm:h-[340px]"
+      className="h-[300px] sm:h-[400px]"
     >
       {data.map((item, idx) => (
         <SwiperSlide key={idx}>
-          <div className="border-transparent border-[1px] shadow-xl backdrop-blur-sm shadow-black/10 h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:border-accent transition-all duration-300">
+          <div className="border-transparent border-[1px] shadow-xl backdrop-blur-sm shadow-black/10 rounded-lg  px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:border-accent transition-all duration-300">
             <div className="text-4xl text-accent mb-4">{item.icon}</div>
 
             <div className="mb-8 text-[#343434] ">
-              <div className="mb-2 text-lg">{item.title}</div>
+              <div className="mb-2 text-lg leading-none">{item.title}</div>
               <p className="max-w-[350px] leading-tight font-urbanist">
                 {item.description}
               </p>

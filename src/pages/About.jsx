@@ -80,7 +80,7 @@ const About = () => {
 
   return (
     <Container>
-        <ParticlesContainer/>
+      <ParticlesContainer />
       <div className="h-full bg-primary py-32 text-center xl:text-left">
         <Circles />
 
@@ -104,8 +104,8 @@ const About = () => {
               exit="hidden"
               className="h2"
             >
-              Captivating <span className="text-accent">stories</span> birth
-              magnificent designs.
+              Coding for
+              <span className="text-accent"> Impact</span>
             </motion.h2>
             <motion.p
               variants={fadeIn("right", 0.4)}
@@ -114,9 +114,11 @@ const About = () => {
               exit="hidden"
               className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
             >
-              12 years ago i began freelancing as a developer. Since then, I've
-              done remote work for agencies, consulted for startups and
-              collaborated on digital products business and consumer use.
+              "As a web developer with 2 years of experience, I've collaborated
+              on various projects, from startups to established businesses. My
+              expertise lies in web and mobile app development. Through
+              LofiCode, I contributed to innovative digital solutions that
+              improve user experiences."
             </motion.p>
 
             <motion.div
@@ -124,7 +126,8 @@ const About = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+              // className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+              className="hidden"
             >
               <div className="flex flex-1 xl:gap-x-6 text-[#343434]">
                 {/* experience */}
@@ -137,7 +140,7 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* experience */}
+                {/* clients */}
                 <div className="relative after:w-[1px] after:h-full after:bg-white/10 after:absolute after:right-0 after:top-0">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
                     <CountUp start={0} end={20} duration={5} /> +
@@ -193,7 +196,9 @@ const About = () => {
                   <div className="font-light mb-2 md:mb-0 flex-1">
                     {item.title}
                   </div>
-                  <div className="hidden md:flex text-accent font-extrabold">-</div>
+                  <div className="hidden md:flex text-accent font-extrabold">
+                    -
+                  </div>
                   <div className="">{item.stage}</div>
 
                   <div className="flex flex-wrap justify-center xl:justify-start gap-y-3 gap-x-4 xl:max-w-sm">

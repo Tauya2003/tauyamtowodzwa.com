@@ -41,7 +41,7 @@ const ParticlesContainer = () => {
           },
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: "grab",
           },
           resize: true,
         },
@@ -60,10 +60,10 @@ const ParticlesContainer = () => {
           value: "#000",
         },
         links: {
-          color: "#f5d393",
+          color: "#000",
           distance: 150,
           enable: true,
-          opacity: 0.5,
+          opacity: 0.1,
           width: 1,
         },
         collisions: {

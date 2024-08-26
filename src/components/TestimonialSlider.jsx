@@ -7,18 +7,19 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 const data = [
   {
-    image: "/t-avt-1.png",
-    name: "Anne Smith",
-    position: "Customer",
+    image: "/maunga.jpg",
+    name: "Emmanuel Maunga",
+    position: "Co-Founder & CTO IntelliEdge Designs and Systems",
+    site: "intelliedge.co.zw",
     message:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!",
+      "I highly recommend Engineer Tauya, an exceptional software engineer with a deep understanding of software development principles and technologies. Tauya's proficiency in various programming languages, frameworks and tools combined with their  problem-solving skills, consistently delivers robust and efficient solutions. His dedication to continuos improvement and willingness to share knowledge further enhances their ability to contribute positively to any engineering environment.",
   },
   {
-    image: "/t-avt-2.png",
-    name: "Jane Doe",
-    position: "Customer",
+    image: "/jauki.jpg",
+    name: "Takudzwa Jauki",
+    position: "Co-Founder LofiCode",
     message:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!",
+      "Working with Tauya Mtowodzwa has been a great experience. He is a very talented developer and has a great work ethic. He is very professional and delivers on time. I would recommend him to anyone looking for a   developer. He is the best.",
   },
   {
     image: "/t-avt-3.png",
@@ -44,7 +45,7 @@ const TestimonialSlider = () => {
           <div className="flex flex-col items-center md:flex-row gap-x-8 h-full px-16 text-[#343434]">
             <div className="w-full max-w-[300px] flex flex-col xl:justify-center items-center relative mx-auto xl:mx-0 ">
               <div className="flex flex-col justify-center items-center">
-                <div className="mb-2 mx-auto">
+                <div className="mb-2 mx-auto rounded-full overflow-hidden">
                   <img src={item.image} width={100} height={100} alt="" />
                 </div>
 
