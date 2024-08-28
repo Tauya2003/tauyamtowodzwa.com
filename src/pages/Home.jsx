@@ -10,7 +10,7 @@ const Home = () => {
     <Container>
       <div className="bg-primary h-full">
         <div className="w-full h-full bg-gradient-to-r from-primary/10 via-white/30 to-white/10">
-          <div className="text-center flex flex-col justify-center pt-5 xl:pt-20 xl:text-left h-full container mx-auto">
+          <div className="text-center flex flex-col justify-center pt-0 xl:pt-20 xl:text-left h-full container mx-auto">
             <motion.h1
               variants={fadeIn("down", 0.2)}
               initial="hidden"
@@ -38,9 +38,15 @@ const Home = () => {
               results."
             </motion.p>
 
-            <div className="flex justify-center xl:hidden relative">
+            <motion.div
+              variants={fadeIn("down", 0.4)}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              className="flex justify-center xl:hidden relative"
+            >
               <ProjectsBtn />
-            </div>
+            </motion.div>
 
             <motion.div
               variants={fadeIn("down", 0.4)}
@@ -57,7 +63,6 @@ const Home = () => {
         <div className="w-full h-full absolute bottom-0 right-0">
           <div className="bg-none xl:bg-brush xl:bg-[cover] xl:bg-[500px] bg-no-repeat h-full w-full absolute translate-z-0"></div>
           <ParticlesContainer />
-
 
           <motion.div
             variants={fadeIn("up", 0.5)}
