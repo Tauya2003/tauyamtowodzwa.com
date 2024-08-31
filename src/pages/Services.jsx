@@ -32,8 +32,7 @@ const Services = () => {
                 exit="hidden"
                 className="mb-4 max-w-[400px] mx-auto lg:mx-0"
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatibus tempora tenetur sequi animi consequatur porro!
+               "Dedicated to delivering high-quality web development services that exceed your expectations." 
               </motion.p>
             </div>
 
