@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ProjectsBtn from "../components/ProjectsBtn";
+import DownloadCV from "../components/DownloadCV";
 import { fadeIn } from "../utils/variants";
 import Avatar from "../components/Avatar";
 import ParticlesContainer from "../components/ParticlesContainer";
@@ -45,7 +45,7 @@ const Home = () => {
               exit="hidden"
               className="flex justify-center xl:hidden relative"
             >
-              <ProjectsBtn />
+              <DownloadCV />
             </motion.div>
 
             <motion.div
@@ -55,7 +55,7 @@ const Home = () => {
               exit="hidden"
               className="hidden xl:flex"
             >
-              <ProjectsBtn />
+              <DownloadCV />
             </motion.div>
           </div>
         </div>
