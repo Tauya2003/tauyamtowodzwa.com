@@ -27,7 +27,6 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
-  console.log(pathname);
   return (
     <div>
       <div className="bg-black text-primary absolute md:hidden left-5 text-xl">
